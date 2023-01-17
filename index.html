@@ -5,22 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="/script.js"></script>
+    <script defer src="script.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Shifumi</title>
+    <audio id='audio' src="music/uwon.mp3"></audio>
 </head>
 
 <body>
     <h1>Shifumi</h1>
-
+    <img id="oui" class="hidden IMGWIN" src="img/ulose real.jpeg" alt="">
+    <div class="hidden lose_card">
+        <span class="hidden lose_card__text puff-in-center" id="UWon" >YOU WIN</span>
+    </div>
     <div class="score">
         <div>
             <span>Player:</span>
-            <span id="score-player">0</span>
+            <span id="score-player"></span>
         </div>
         <div>
             <span>IA:</span>
-            <span id="score-ia">0</span>
+            <span id="score-ia"></span>
         </div>
     </div>
 
@@ -31,12 +35,12 @@
     </div>
 
     <div id="command">
-        <button onclick="shisrc()" id="shi"><img src="/img/shi.png"></button>
-        <button onclick="fusrc()" id="fu"><img src="/img/fu.png"></button>
-        <button onclick="misrc()"  id="mi"><img src="/img/mi.png"></button>
+        <button class="button__choices" onclick="shisrc()" id="shi"><img src="img/shi.png"></button>
+        <button class="button__choices" onclick="fusrc()" id="fu"><img src="img/fu.png"></button>
+        <button class="button__choices" onclick="misrc()"  id="mi"><img src="img/mi.png"></button>
     </div>
 
-    <button class="hidden btn-restart" id="restart">TRY AGAIN</button>
+    <button class="hidden btn-restart" id="restart" onclick="RestartGame()" >TRY AGAIN</button>
 </body>
 
 </html>

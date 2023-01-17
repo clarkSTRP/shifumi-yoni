@@ -4,10 +4,15 @@ const mi = document.getElementById('mi');
 const player = document.getElementById('player');
 const ia = document.getElementById('ia');
 const command = document.getElementById('command');    
+const TryAgain = document.getElementById('restart');
+const UWon =document.getElementById('UWon');
+const ChoicesButton =document.getElementsByClassName('button__choices')
+const UWON = 
 ScoreIa = 0;
 ScorePlayer = 0;
 Iapower= 0;
 PlayerPower=0;
+
 
 
 
@@ -30,24 +35,24 @@ const Calcul = Math.floor(Math.random() * Choices.length);
 console.log(Choices[Calcul]); 
 ia.classList.remove('translate-left');
 if (Choices[Calcul] === 'shi'){
-    document.getElementById('ia').src="/img/shi.png"
+    document.getElementById('ia').src="img/shi.png"
     ia.classList.add("translate-right")
     Iapower=1
   
 } if (Choices[Calcul] === 'fu'){
-   document.getElementById('ia').src="/img/fu.png"
+   document.getElementById('ia').src="img/fu.png"
    ia.classList.add("translate-right")
    Iapower=2
  
 } if (Choices[Calcul] === 'mi'){
-  document.getElementById('ia').src="/img/mi.png"
+  document.getElementById('ia').src="img/mi.png"
   ia.classList.add("translate-right")
   Iapower=3
 
 }
 }
 function shisrc() {
-    player.src="/img/shi.png";
+    player.src="img/shi.png";
     player.classList.add("translate-left")
     PlayerPower=1;
     ResetAnim()
@@ -55,7 +60,7 @@ function shisrc() {
     ScoreUp()
     }
 function fusrc() {
-    player.src="/img/fu.png";
+    player.src="img/fu.png";
     player.classList.add("translate-left")
     PlayerPower=2;
     ResetAnim()
@@ -63,7 +68,7 @@ function fusrc() {
     ScoreUp()
     }
 function misrc() {
-    player.src="/img/mi.png";
+    player.src="img/mi.png";
     player.classList.add("translate-left")
     PlayerPower=3;
     ResetAnim()
@@ -86,13 +91,44 @@ if(PlayerPower==1&&Iapower==2){
 }else{
     ScoreIa++;
 }
+document.getElementById("score-player").innerText = ScorePlayer
+document.getElementById("score-ia").innerText = ScoreIa
 console.log(ScorePlayer);
 console.log(ScoreIa);
 }
 
 function  win(){
-    if(ScorePlayer===3){
+
+    if(ScorePlayer==3){
         alert('uWON')
+        UWon.classList.remove('hidden')
+        TryAgain.classList.remove('hidden')
+
+        for (let index=0;index<ChoicesButton.length;index++) {
+        ChoicesButton[index].classList.add('hidden')
     }
+
+        ScorePlayer = 0
+        ScoreIa = 0
+    }if (ScoreIa==3){
+        ScorePlayer = 0
+        ScoreIa = 0
+        for (let index=0;index<ChoicesButton.length;index++) {
+            ChoicesButton[index].classList.add('hidden')
+        }
+        alert('uLOSE')
+        TryAgain.classList.remove('hidden')
 }
+}
+function RestartGame(){
+    for (let index=0;index<ChoicesButton.length;index++) {
+        ChoicesButton[index].classList.remove('hidden')
+    }
+        document.getElementById('oui').classList.remove('hidden')
+        TryAgain.classList.add('hidden')
+        document.getElementById("audio").play();
+        UWon.classList.add('hidden')
+}
+
+
 
