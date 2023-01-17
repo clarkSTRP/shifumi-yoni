@@ -8,18 +8,6 @@ ScoreIa = 0;
 ScorePlayer = 0;
 Iapower= 0;
 PlayerPower=0;
-function audioplayer(){
-    var play = confirm('Do you want to play some music?');
-    if(play){
-        document.getElementById("audio").play();
-    }else{
-        console.log('I understand, Music will not play.')
-    }
-}
-window.onload = function() {
-    audioplayer();
-  }
-
 
 
 
@@ -98,8 +86,6 @@ if(PlayerPower==1&&Iapower==2){
 }else{
     ScoreIa++;
 }
-document.getElementById("score-player").innerText = ScorePlayer
-document.getElementById("score-ia").innerText = ScoreIa
 console.log(ScorePlayer);
 console.log(ScoreIa);
 }
@@ -107,13 +93,6 @@ console.log(ScoreIa);
 function  win(){
     if(ScorePlayer===3){
         alert('uWON')
-        ScorePlayer = 0
-        ScoreIa = 0
-    }if (ScoreIa===3){
-        ScorePlayer = 0
-        ScoreIa = 0
-        alert('uLOSE')
+    }
 }
-}
-
 
